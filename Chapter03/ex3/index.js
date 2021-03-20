@@ -3,7 +3,8 @@ import { EventEmitter } from 'events';
 function tickEventStart(number, callback) {
   const emitter = new EventEmitter();
   const EVENT_INTERVAL = 50;
-  let tickCount = 0;
+  let tickCount = 1;
+  emitter.emit('tick', tickCount);
   let millisecondsCount = 0;
   const tickEvent = () => {
     tickCount += 1;
