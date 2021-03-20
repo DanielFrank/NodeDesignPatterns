@@ -1,0 +1,29 @@
+import { EventEmitter } from 'events';
+
+function tickEventStart(number, callback) {
+  const emitter = new EventEmitter();
+  const EVENT_INTERVAL = 50;
+  let tickCount = 0;
+  let millisecondsCount = 0;
+  const tickEvent = () => {
+    tickCount += 1;
+    emitter.emit('tick', tickCount);
+    millisecondsCount += EVENT_INTERVAL;
+    if (millisecondsCount >= number) {
+      callback(null, tickCount);
+    } else {
+      setTimeout(tickEvent, EVENT_INTERVAL);
+    }
+  };
+  setTimeout(tickEvent, EVENT_INTERVAL);
+  return emitter
+}
+
+tickEventStart(735, (err, tickCount) => {
+  if (err) {
+    return console.error(err);
+  }
+  console.log(`${tickCount} ticks were done`);
+})
+  .on('tick', tickCount => console.log(`Tick #${tickCount}`))
+  .on('error', err => console.error(`Error emitted ${err.message}`))
