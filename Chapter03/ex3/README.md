@@ -1,4 +1,4 @@
-# Exercise 3.2
+# Exercise 3.3
 Modify function from exercise 3.2 so that it emits a tick event immediately after the function is invoked.
 
 ## Notes
