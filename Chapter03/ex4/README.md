@@ -6,6 +6,8 @@ Gets error which is generally handled. Exception is that similar to not seeing T
 
 We should probably set this up as a class and set up the event-handlers before we call the processing. (Not doing that since that wasn't the exercise. Were this a real project, I would discuss with the team that we have this problem (Or just fix it if I have tha authority and it won't break things for other folks using this.))
 
+As an experiment I tried setting up the error-handler before the tick-event-handler but that made no difference.
+
 ## Run
 
 To run the example launch:
